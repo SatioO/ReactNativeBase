@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Button } from 'react-native';
+import { View, Button, StatusBar } from 'react-native';
 
-export default function Dashboard({ navigation }) {
+function Dashboard({ navigation }) {
   return (
     <View
       style={{
@@ -9,7 +9,13 @@ export default function Dashboard({ navigation }) {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-      <Button onPress={() => navigation.navigate('Sales')} title="Go to Sales" />
+      <StatusBar barStyle="dark-content" backgroundColor="#ecf0f1" />
+      <Button
+        onPress={() => navigation.navigate('Sales')}
+        title="Go to Sales"
+      />
     </View>
   );
 }
+
+export default Dashboard;

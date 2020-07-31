@@ -3,6 +3,7 @@ import {
   NavigationContainer,
   DefaultTheme,
   DarkTheme,
+  useTheme,
 } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -19,32 +20,104 @@ const DrawerScreens = () => (
 );
 
 const DashboardStack = createStackNavigator();
-const DashboardStackScreens = () => (
-  <DashboardStack.Navigator>
-    <DashboardStack.Screen name="Dashboard" component={DrawerScreens} />
-    <DashboardStack.Screen name="Sales" component={Sales} />
-  </DashboardStack.Navigator>
-);
+const DashboardStackScreens = () => {
+  const { colors } = useTheme();
+  return (
+    <DashboardStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.primary,
+          shadowColor: colors.shadow,
+          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.2,
+          shadowRadius: 4,
+          elevation: 8,
+          borderBottomWidth: 0,
+        },
+        headerTintColor: colors.card,
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}>
+      <DashboardStack.Screen name="Dashboard" component={DrawerScreens} />
+      <DashboardStack.Screen name="Sales" component={Sales} />
+    </DashboardStack.Navigator>
+  );
+};
 
 const AuthStack = createStackNavigator();
 const AuthStackScreens = () => (
-  <AuthStack.Navigator>
+  <AuthStack.Navigator headerMode="none">
     <AuthStack.Screen name="Login" component={Login} />
   </AuthStack.Navigator>
 );
 
 const RootStack = createStackNavigator();
 
-const MyTheme = {
+const fontConfig = {
+  regular: {
+    fontFamily: 'Gotham-Book',
+    fontWeight: 'normal',
+  },
+  bold: {
+    fontFamily: 'Gotham-Bold',
+    fontWeight: 'bold',
+  },
+  light: {
+    fontFamily: 'Gotham-Light',
+    fontWeight: 'normal',
+  },
+  medium: {
+    fontFamily: 'Gotham-Medium',
+    fontWeight: 'normal',
+  },
+};
+
+const sizeConfig = {
+  // global sizes
+  base: 16,
+  radius: 6,
+  padding: 16,
+  margin: 16,
+
+  // font sizes
+  h1: 26,
+  h2: 20,
+  h3: 18,
+  title: 18,
+  header: 16,
+  body: 14,
+  caption: 12,
+  support: 10,
+};
+
+const CustomLightTheme = {
   ...DefaultTheme,
+  fonts: fontConfig,
+  sizes: sizeConfig,
   colors: {
     ...DefaultTheme.colors,
-    primary: 'rgb(255, 45, 85)',
+    primary: 'rgb(141, 170, 61)',
+    secondary: 'rgb(141, 170, 61)',
+    tertiary: 'rgb(141, 170, 61)',
     background: 'rgb(242, 242, 242)',
     card: 'rgb(255, 255, 255)',
     text: 'rgb(28, 28, 30)',
     border: 'rgb(199, 199, 204)',
     notification: 'rgb(255, 69, 58)',
+    shadow: 'rgb(199, 199, 204)',
+  },
+};
+
+const CustomDarkTheme = {
+  ...DarkTheme,
+  fonts: fontConfig,
+  sizes: sizeConfig,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'rgb(141, 170, 61)',
+    secondary: 'rgb(141, 170, 61)',
+    tertiary: 'rgb(141, 170, 61)',
   },
 };
 
@@ -54,7 +127,8 @@ function App() {
 
   return (
     <AppearanceProvider>
-      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : MyTheme}>
+      <NavigationContainer
+        theme={scheme === 'dark' ? CustomDarkTheme : CustomLightTheme}>
         <RootStack.Navigator headerMode="none">
           {!isAuthorized && (
             <RootStack.Screen name="Login" component={AuthStackScreens} />
