@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Button, Linking } from 'react-native';
-import { Block, Input, Text } from '../../../components';
+import { StyleSheet, Keyboard, useWindowDimensions } from 'react-native';
+import { Container, Input, Text } from '../../../components';
 import { useTheme } from '@react-navigation/native';
+import styles from '../styles';
 
 const UsernameScreen = (props) => {
-  const { sizes, colors } = useTheme();
+  const { sizes, colors, fonts } = useTheme();
+  const dimensions = useWindowDimensions();
   const [username, setUsername] = useState(
     !!props.params.username ? props.params.username : '',
   );
@@ -153,48 +155,29 @@ const UsernameScreen = (props) => {
   }
 
   return (
-    <Block padding={[0, sizes.padding]}>
+    <Container
+      height={dimensions.height * 0.4}
+      width={dimensions.width}
+      padding={sizes.padding}>
       <Input
         email
         keyboardType="email-address"
         label="Email or Mobile Number"
-        error={!!error}
         defaultValue={username}
         onChangeText={onUsernameChange}
+        style={{
+          ...fonts.regular,
+          borderRadius: 0,
+          borderWidth: 0,
+          borderBottomColor: colors.text,
+          borderBottomWidth: StyleSheet.hairlineWidth,
+          height: 38,
+          fontSize: 16,
+          color: colors.text,
+          fontWeight: '500',
+        }}
       />
-      {!!error && (
-        <Text caption tertiary>
-          {error}
-        </Text>
-      )}
-      <Block center>
-        <Button
-          color={colors.primary}
-          style={{
-            width: sizes.base * 8,
-            backgroundColor:
-              username.length === 0 || error || !!loading
-                ? colors.gray
-                : colors.primary,
-          }}
-          onPress={onContinue}
-          disabled={username.length === 0 || !!error || !!loading}
-          title="Continue"></Button>
-      </Block>
-      <Block flex={false} center style={{ marginBottom: sizes.base * 4 }}>
-        <Text gray caption>
-          By logging in you agree to the{' '}
-          <Text
-            primary
-            caption
-            bold
-            style={{ textDecorationLine: 'underline' }}
-            onPress={() => Linking.openURL(config.TERMS_AND_SERVICE)}>
-            Terms & Services
-          </Text>
-        </Text>
-      </Block>
-    </Block>
+    </Container>
   );
 };
 

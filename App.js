@@ -114,7 +114,7 @@ const CustomDarkTheme = {
   fonts: fontConfig,
   sizes: sizeConfig,
   colors: {
-    ...DefaultTheme.colors,
+    ...DarkTheme.colors,
     primary: 'rgb(141, 170, 61)',
     secondary: 'rgb(141, 170, 61)',
     tertiary: 'rgb(141, 170, 61)',
