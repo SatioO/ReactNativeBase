@@ -5625,9 +5625,9 @@ punycode@^2.1.0, punycode@^2.1.1:
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
-  integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
+  integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 query-string@^6.13.1:
   version "6.13.1"
@@ -5665,10 +5665,10 @@ react-native-appearance@^0.3.4:
     invariant "^2.2.4"
     use-subscription "^1.0.0"
 
-react-native-device-info@^5.6.2:
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-5.6.2.tgz#194c055355f1dd3121ab682b00598086cf4beb32"
-  integrity sha512-c+bVrvbQIlUlUHpIiggjhCUnqTga7sK0+G1RhRN25ct3kQvDkj3TKv0GGsqTJxIqNBfzg2Hh5ulMkrU0ddeu/Q==
+react-native-device-info@^5.6.3:
+  version "5.6.5"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-5.6.5.tgz#3f18d7c38b21cfc475163351a9aae6e9037a43a0"
+  integrity sha512-l457wv7gYXSRnm38AH+NpCgKYa1zxxfN0EL8mTBxo+TnasXtk0FZ86zWDLhm4eqpcSH8xpT/+z2MQrATfqCaoA==
 
 react-native-elements@^2.0.4:
   version "2.0.4"
@@ -5735,10 +5735,10 @@ react-native-status-bar-height@^2.5.0:
   resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.5.0.tgz#bc0fb85230603850aab9667ee8111a62954de90c"
   integrity sha512-sYBCPYA/NapBSHkdm/IVL4ID3LLlIuLqINi2FBDyMkc2BU9pfSGOtkz9yfxoK39mYJuTrlTOQ7mManARUsYDSA==
 
-react-native@0.63.0:
-  version "0.63.0"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.63.0.tgz#1444aa04c34b65ca1dce589db166bd112e982b96"
-  integrity sha512-486RaRKKw35+DgZwdbCUQJsjSRflG5JC4w5T9ZfKqUjlyDDQHgew2berQanYAFbgO4Qh/2mAvAMJe6EhUESufQ==
+react-native@0.63.2:
+  version "0.63.2"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.63.2.tgz#eaebf3430577b37fbd66ef228a86b3408259ef8e"
+  integrity sha512-MkxHeJorUDzmQwKJrTfrFYMDRLyu9GSBpsFFMDX7X+HglVnaZi3CTzW2mRv1eIcazoseBOP2eJe+bnkyLl8Y2A==
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@react-native-community/cli" "^4.7.0"
